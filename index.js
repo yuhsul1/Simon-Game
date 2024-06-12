@@ -19,7 +19,7 @@ $(".start-btn").click(function() {
       },100)
     $(".container-front").fadeOut();
     $(".container").fadeIn();
-    nextSequence();
+    setTimeout(nextSequence(),20000)
     started = true;
   }
 });
