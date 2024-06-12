@@ -6,7 +6,7 @@ var level = 0;
 var touchedScreen = false;
 
 
-$(".container").fadeOut();
+$(".container").hide();
 
 $(".start-btn").click(function() {
   if (!started) {
@@ -18,7 +18,7 @@ $(".start-btn").click(function() {
         $(this).removeClass("pressed");
       },100)
     $(".container-front").fadeOut();
-    $(".container").fadeIn();
+    $(".container").show();
     setTimeout(nextSequence(),20000)
     started = true;
   }
@@ -84,7 +84,7 @@ function checkAnswer(currentLevel) {
     setTimeout(function(){
       $("body").removeClass("game-over");
     },200)
-    $(".container").fadeOut();
+    $(".container").hide();
     $(".container-front").fadeIn();
     $("#level-title").text("Game Over, Press Start to Restart");
     
