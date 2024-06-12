@@ -3,12 +3,22 @@ var gamePattern = [];
 var userClickedPattern = [];
 var started = false;
 var level = 0;
+var touchedScreen = false;
 
-$(document).keypress(function() {
+
+$(".container").fadeOut();
+
+$(".start-btn").click(function() {
   if (!started) {
 
     //3. The h1 title starts out saying "Press A Key to Start", when the game has started, change this to say "Level 0".
     $("#level-title").text("Level " + level);
+    $(this).addClass("pressed");
+      setTimeout(function(){
+        $(this).removeClass("pressed");
+      },100)
+    $(".container-front").fadeOut();
+    $(".container").fadeIn();
     nextSequence();
     started = true;
   }
@@ -74,7 +84,10 @@ function checkAnswer(currentLevel) {
     setTimeout(function(){
       $("body").removeClass("game-over");
     },200)
-    $("#level-title").text("Game Over, Press Any Key to Restart");
+    $(".container").fadeOut();
+    $(".container-front").fadeIn();
+    $("#level-title").text("Game Over, Press Start to Restart");
+    
     
     startOver();
 
@@ -106,3 +119,4 @@ function startOver(){
   level = 0;
   started = false;
 }
+
